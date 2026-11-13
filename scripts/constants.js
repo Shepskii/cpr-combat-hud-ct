@@ -1,4 +1,4 @@
-export const MODULE_ID = "cpr-combat-hud";
+export const MODULE_ID = "cpr-combat-hud-ct";
 export const SYSTEM_ID = "cyberpunk-red-core";
 
 export const TEMPLATE_PATH = `modules/${MODULE_ID}/templates/hud.hbs`;

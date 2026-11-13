@@ -211,6 +211,7 @@
             </span>
           </div>
           <div class="chud-weapon-buttons">
+            {{#if @root.canAttack}}
             {{#if canAutofire}}
             <button type="button" class="chud-toggle {{#if isAutofire}}active{{/if}}"
                     data-action="fire-mode" data-item-id="{{id}}" data-mode="autofire"
@@ -224,16 +225,19 @@
             <button type="button" class="chud-toggle {{#if isAimed}}active{{/if}}"
                     data-action="fire-mode" data-item-id="{{id}}" data-mode="aimed"
                     title="{{localize 'CPR-CHUD.bar.aimed'}}"><i class="fa-solid fa-crosshairs"></i></button>
+            {{/if}}
             {{#if hasMagazine}}
             <button type="button" class="chud-toggle" data-action="reload" data-item-id="{{id}}"
                     title="{{localize 'CPR-CHUD.bar.reload'}}"><i class="fa-solid fa-rotate"></i></button>
             <button type="button" class="chud-toggle" data-action="change-ammo" data-item-id="{{id}}"
                     title="{{localize 'CPR-CHUD.bar.changeAmmo'}}"><i class="fa-solid fa-boxes-stacked"></i></button>
             {{/if}}
+            {{#if @root.canAttack}}
             <button type="button" class="chud-btn chud-atk" data-action="attack" data-item-id="{{id}}">
               {{localize "CPR-CHUD.bar.attack"}}</button>
             <button type="button" class="chud-btn chud-dmg" data-action="damage" data-item-id="{{id}}">
               {{localize "CPR-CHUD.bar.damage"}}</button>
+            {{/if}}
           </div>
         </div>
         {{/each}}

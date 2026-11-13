@@ -1,4 +1,4 @@
-# Cyberpunk RED - Combat HUD
+# Cyberpunk RED - Combat HUD (Combat Tools edition)
 
 ![Foundry v12](https://img.shields.io/badge/Foundry-v12-informational)
 ![System](https://img.shields.io/badge/system-cyberpunk--red--core-e5233d)
@@ -7,6 +7,13 @@
 A persistent, always-on **combat HUD bar** for the **Cyberpunk RED - CORE** system on Foundry VTT **V12**.
 Select a token (or assign a character to your user) and a sleek neon bar appears at the bottom of the screen with
 everything you need in a fight - no more digging through the character sheet mid-turn.
+
+> **This is a fork** of [Cyberpunk RED - Combat HUD](https://github.com/Vec97/cpr-combat-hud) by Vec97 (version 1.1.3),
+> for tables that run combat through [Pneuma's Combat Tools](https://github.com/GMPneuma/PneumaCombatTools).
+> The one change: the GM chooses who can start attacks from the HUD, and by default only the GM can.
+> Players make every attack through Combat Tools (or the character sheet), so its attack and evasion flow,
+> range DVs, smoke, grapples and damage cards always apply. Everything else in the HUD works as in the original.
+> Enable this **or** the original HUD, not both. The CPR Combat HUD - Pneuma Combat Tools Bridge is not needed with it.
 
 > Unofficial, independent add-on. Not affiliated with R. Talsorian Games. Requires the
 > [Cyberpunk RED - CORE](https://gitlab.com/cyberpunk-red-team/fvtt-cyberpunk-red-core) system.
@@ -19,13 +26,13 @@ everything you need in a fight - no more digging through the character sheet mid
 2. Paste this **Manifest URL** into the field at the bottom:
 
    ```
-   https://github.com/Vec97/cpr-combat-hud/releases/latest/download/module.json
+   https://github.com/Shepskii/cpr-combat-hud-ct/releases/latest/download/module.json
    ```
 
-3. Click **Install**, then enable **Cyberpunk RED - Combat HUD** in your world's module settings.
+3. Click **Install**, then enable **Cyberpunk RED - Combat HUD (Combat Tools edition)** in your world's module settings.
 
-**Manual:** download `module.zip` from the [latest release](https://github.com/Vec97/cpr-combat-hud/releases/latest)
-and extract it into your Foundry `Data/modules/cpr-combat-hud` folder.
+**Manual:** download `module.zip` from the [latest release](https://github.com/Shepskii/cpr-combat-hud-ct/releases/latest)
+and extract it into your Foundry `Data/modules/cpr-combat-hud-ct` folder.
 
 ## Features
 
@@ -34,7 +41,7 @@ and extract it into your Foundry `Data/modules/cpr-combat-hud` folder.
 - **Armor** - head/body SP and shield HP with one-click ablate/repair, kept in sync with the sheet via the system's tracked-armor logic.
 - **Vitals** - Humanity, LUCK (spend/regain with one click), Death Save penalty (click = roll a Death Save, right-click = reset the penalty).
 - **Stats** - all ten stats; one click rolls them through the system's roll dialog (Ctrl-click skips the dialog, exactly like the sheet).
-- **Weapons** - every equipped weapon (including installed cyberware weapons and secondary-weapon upgrades) with damage, ROF and magazine, Attack/Damage buttons, reload, ammo swap, and fire-mode toggles (Aimed / Autofire / Suppressive) plus an aimed-location selector.
+- **Weapons** - every equipped weapon (including installed cyberware weapons and secondary-weapon upgrades) with damage, ROF and magazine, reload and ammo swap. Attack/Damage buttons, fire-mode toggles (Aimed / Autofire / Suppressive) and the aimed-location selector appear only for those the GM allows (see below).
 - **Skills** - searchable flyout grouped by category with the full `STAT + level + mods` total. Click to roll, right-click to open the item. Mark **favourites** with the star; they appear in an expandable row inside the bar for one-click access.
 - **Role abilities** - flyout with every rollable role ability (main and sub-abilities, e.g. Combat Awareness, Medicine...).
 - **Netrunning** - when a cyberdeck is equipped and a netrunning role is active, an Interface panel offers all nine interface abilities (Scanner, Backdoor, Cloak...).
@@ -43,6 +50,16 @@ and extract it into your Foundry `Data/modules/cpr-combat-hud` folder.
 
 All rolls use the system's own roll pipeline (`createRoll` → roll dialog → ammo consumption → chat card), so mods,
 wound penalties, luck spending, critical injuries and targeting behave exactly as if rolled from the character sheet.
+
+## Attacks from the HUD (world setting)
+
+**Attacks from the HUD** decides who sees the Attack and Damage buttons, the fire-mode toggles and the aimed-shot location:
+
+- **GM only** (default) - players attack through Combat Tools; the GM keeps the HUD's attacks.
+- **Nobody** - everyone attacks through Combat Tools or the sheet.
+- **Everyone** - the original HUD's behaviour.
+
+Reload, ammo, stats, skills, role and interface abilities, death saves, initiative, end turn and equipping are not affected.
 
 ## Settings (per user)
 
@@ -59,8 +76,8 @@ wound penalties, luck spending, critical injuries and targeting behave exactly a
 
 ## Contributing / Issues
 
-Bug reports and suggestions are welcome on the [issue tracker](https://github.com/Vec97/cpr-combat-hud/issues).
+Report problems with this edition on its [issue tracker](https://github.com/Shepskii/cpr-combat-hud-ct/issues), not to the original author.
 
 ## License
 
-[MIT](LICENSE) © 2026 Vec97
+[MIT](LICENSE) © 2026 Vec97; changes in the Combat Tools edition © 2026 Shepskii, under the same licence.

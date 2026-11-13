@@ -76,6 +76,23 @@ Hooks.once("init", () => {
     default: "always",
   });
 
+  // Who may start attacks from the HUD. By default only the GM; players make
+  // every attack through Pneuma's Combat Tools instead.
+  game.settings.register(MODULE_ID, "attackAccess", {
+    name: "CPR-CHUD.settings.attackAccess.name",
+    hint: "CPR-CHUD.settings.attackAccess.hint",
+    scope: "world",
+    config: true,
+    type: String,
+    choices: {
+      none: "CPR-CHUD.settings.attackAccess.none",
+      gm: "CPR-CHUD.settings.attackAccess.gm",
+      all: "CPR-CHUD.settings.attackAccess.all",
+    },
+    default: "gm",
+    onChange: () => hud?.refresh(),
+  });
+
   game.settings.register(MODULE_ID, "favsOpen", {
     scope: "client",
     config: false,

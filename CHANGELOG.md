@@ -3,6 +3,16 @@
 All notable changes to **Cyberpunk RED - Combat HUD** are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.0.0 Combat Tools edition] - 2026-11-13
+
+Forked from Cyberpunk RED - Combat HUD 1.1.3 by Vec97 as its own module, `cpr-combat-hud-ct`.
+
+### Added
+- World setting **Attacks from the HUD**: Nobody / GM only (default) / Everyone. Without it, the Attack and Damage buttons, the fire-mode toggles and the aimed-shot location are hidden and refused, so players attack through Pneuma's Combat Tools.
+
+### Changed
+- Module id, title, links and manifest point to the fork. It conflicts with the original HUD and with the CPR Combat HUD - Pneuma Combat Tools Bridge.
+
 ## [1.1.3] - 2026-07-08
 
 ### Changed

@@ -24,6 +24,15 @@ const WOUND_STATE_CSS = {
   invalidState: "ok",
 };
 
+/** HUD actions that start or shape an attack. */
+const ATTACK_ACTIONS = new Set(["attack", "damage", "fire-mode"]);
+
+/** Whether this user may start attacks from the HUD (world setting). */
+export function canAttackFromHud() {
+  const access = game.settings.get(MODULE_ID, "attackAccess");
+  return access === "all" || (access === "gm" && game.user.isGM);
+}
+
 export default class CPRCombatHUD extends Application {
   constructor(options = {}) {
     super(options);
@@ -124,6 +133,7 @@ export default class CPRCombatHUD extends Application {
     data.alias = actor.system.information?.alias ?? "";
     data.img = tokenDoc?.texture?.src || actor.img;
     data.isCharacter = actor.type === "character";
+    data.canAttack = canAttackFromHud();
 
     this._prepareVitals(data, actor);
     this._prepareStats(data, actor);
@@ -237,7 +247,7 @@ export default class CPRCombatHUD extends Application {
     });
     data.hasWeapons = data.weapons.length > 0;
 
-    data.showAimLocation = anyAimed.length > 0;
+    data.showAimLocation = data.canAttack && anyAimed.length > 0;
     const currentLocation =
       actor.getFlag(SYSTEM_ID, "aimedLocation") || "head";
     data.aimedLocations = AIMED_LOCATIONS.map((loc) => ({
@@ -418,6 +428,8 @@ export default class CPRCombatHUD extends Application {
     const actor = this._actor;
     const tokenDoc = this._tokenDoc;
     if (!actor && !["expand"].includes(action)) return;
+    // The buttons are not drawn for this user; refuse a stale click as well.
+    if (ATTACK_ACTIONS.has(action) && !canAttackFromHud()) return;
 
     switch (action) {
       case "collapse":
@@ -546,7 +558,7 @@ export default class CPRCombatHUD extends Application {
 
     if (el.classList.contains("chud-hp-input")) {
       await Actions.setHp(actor, Number(el.value));
-    } else if (el.classList.contains("chud-aim-location")) {
+    } else if (el.classList.contains("chud-aim-location") && canAttackFromHud()) {
       await Actions.setAimedLocation(actor, el.value);
     }
   }

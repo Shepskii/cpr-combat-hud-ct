@@ -20,6 +20,11 @@
   "CPR-CHUD.settings.targetMode.off": "Off - roll immediately",
   "CPR-CHUD.settings.targetMode.ifNone": "Only when nothing is targeted",
   "CPR-CHUD.settings.targetMode.always": "Always ask for a target",
+  "CPR-CHUD.settings.attackAccess.name": "Attacks from the HUD",
+  "CPR-CHUD.settings.attackAccess.hint": "Who sees the Attack and Damage buttons, the fire-mode toggles and the aimed-shot location. Anyone without them makes attacks through Pneuma's Combat Tools or the character sheet. Reload, ammo, skills, rolls and equipping stay for everyone.",
+  "CPR-CHUD.settings.attackAccess.none": "Nobody",
+  "CPR-CHUD.settings.attackAccess.gm": "GM only",
+  "CPR-CHUD.settings.attackAccess.all": "Everyone",
   "CPR-CHUD.keybindings.toggle.name": "Toggle Combat HUD",
   "CPR-CHUD.keybindings.toggle.hint": "Collapse or expand the combat HUD bar.",
 
